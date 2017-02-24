@@ -1,0 +1,11 @@
+<h1>HOUSES OF DUNE</h1>
+<h3><%= link_to "(add a new house)", new_house_path %></h3>
+
+<% @houses.each do |house| %>
+  <h2><%= link_to "#{house.name}", house_path(house) %></h2><br />
+  <%= image_tag "#{house.sigil}" %>
+  <h3>Members of <%= house.name %></h3>
+  <% house.characters.each do |character| %>
+    <li><%= character.name %></li>
+    <% end %>
+<% end %>
